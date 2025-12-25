@@ -35,7 +35,7 @@ export default function SectionOurProcess() {
           </CardTitle>
         </CardHeader>
         <CardContent className={'space-y-8'}>
-          <div className={'flex items-center justify-center'}>
+          <div className={'hidden lg:flex items-center justify-center'}>
             <Separator className={'max-w-72'} />
             <TypographyLarge className={'font-bold! text-4xl!'}>
               01

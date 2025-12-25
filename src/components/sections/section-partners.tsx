@@ -5,6 +5,8 @@ import { partners } from '@/constants';
 import { Card, CardContent } from '../ui/card';
 import { Carousel, CarouselContent, CarouselItem } from '../ui/carousel';
 
+const isDev = import.meta.env.DEV;
+
 export default function SectionPartners() {
   return (
     <section id='trusted-partners'>
@@ -15,16 +17,20 @@ export default function SectionPartners() {
               align: 'start',
               loop: true,
             }}
-            plugins={[
-              AutoPlay({
-                delay: 3000,
-                playOnInit: true,
-                stopOnInteraction: true,
-                stopOnFocusIn: true,
-                stopOnMouseEnter: true,
-              }),
-              AutoScroll(),
-            ]}>
+            plugins={
+              isDev
+                ? undefined
+                : [
+                    AutoPlay({
+                      delay: 3000,
+                      playOnInit: true,
+                      stopOnInteraction: true,
+                      stopOnFocusIn: true,
+                      stopOnMouseEnter: true,
+                    }),
+                    AutoScroll(),
+                  ]
+            }>
             <CarouselContent>
               {partners.map((partner) => (
                 <CarouselItem

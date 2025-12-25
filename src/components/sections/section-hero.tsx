@@ -8,7 +8,7 @@ import {
   TwitterIcon,
   YoutubeIcon,
 } from 'lucide-react';
-import { TypographyH1, TypographyP } from '../typography';
+import { TypographyH1, TypographyLarge, TypographyP } from '../typography';
 import { Badge } from '../ui/badge';
 import { Button, buttonVariants } from '../ui/button';
 import {
@@ -19,6 +19,13 @@ import {
   CardHeader,
   CardTitle,
 } from '../ui/card';
+import {
+  Item,
+  ItemContent,
+  ItemDescription,
+  ItemHeader,
+  ItemTitle,
+} from '../ui/item';
 import {
   Tooltip,
   TooltipContent,
@@ -42,34 +49,42 @@ export default function SectionHero() {
           </CardTitle>
         </CardHeader>
         <CardContent className={'grid grid-cols-3 gap-4'}>
+          <div className={'order-2 md:order-1 col-span-full md:col-span-1 '}>
+            <div className={'flex items-center gap-2'}>
+              {Array.from({ length: 4 }).map(() => (
+                <div
+                  key={crypto.randomUUID()}
+                  className={
+                    'rounded-full outline-2 p-0.5 outline-primary outline-double'
+                  }>
+                  <img
+                    src='/tanstack-circle-logo.png'
+                    alt='client-avatar'
+                    width={100}
+                    height={100}
+                    className={'w-full h-full object-cover'}
+                  />
+                </div>
+              ))}
+            </div>
+
+            <Item className={'p-2'}>
+              <ItemContent>
+                <ItemHeader>
+                  <ItemTitle>
+                    <TypographyLarge className={'text-xl font-semibold'}>
+                      1500+
+                    </TypographyLarge>
+                  </ItemTitle>
+                  <ItemDescription>Trusted Clients</ItemDescription>
+                </ItemHeader>
+              </ItemContent>
+            </Item>
+          </div>
           <div
             className={
-              'order-2 md:order-1 col-span-full md:col-span-1 flex items-center gap-2'
+              'order-1 md:order-2 col-span-full md:col-span-2 flex items-center'
             }>
-            {Array.from({ length: 4 }).map(() => (
-              <div
-                key={crypto.randomUUID()}
-                className={
-                  'rounded-full outline-2 p-0.5 outline-primary outline-double'
-                }>
-                <img
-                  src='/tanstack-circle-logo.png'
-                  alt='client-avatar'
-                  width={100}
-                  height={100}
-                  className={'w-full h-full object-cover'}
-                />
-              </div>
-            ))}
-
-            <p>
-              <span className={'text-lg font-bold block'}>1500+</span>
-              <span className={'font-medium text-sm text-primary block'}>
-                Trusted Clients
-              </span>
-            </p>
-          </div>
-          <div className={'order-1 md:order-2 col-span-full md:col-span-2'}>
             <TypographyP>
               Viverra vitae congue eu consequat ac. Tortor condimentum lacinia
               quis vel eros donec. Faucibus interdum posuere lorem ipsum. Lacus

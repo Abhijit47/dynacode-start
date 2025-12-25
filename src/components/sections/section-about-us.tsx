@@ -1,5 +1,8 @@
-import { aboutInfo } from '@/constants';
 import { LightbulbIcon } from 'lucide-react';
+
+import { aboutInfo } from '@/constants';
+import AboutStats from '../shared/about-stats';
+import CoverWithCounter from '../shared/cover-with-counter';
 import { TypographyH2, TypographyH3 } from '../typography';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
@@ -17,7 +20,7 @@ export default function SectionAboutUs() {
     <section id='about-us'>
       <Card
         className={
-          'grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-4 border-0 shadow-none bg-transparent'
+          'grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-4 border-0 shadow-none bg-transparent'
         }>
         <CardContent className={'w-full h-full px-0'}>
           <Card
@@ -50,14 +53,12 @@ export default function SectionAboutUs() {
             </CardFooter>
           </Card>
         </CardContent>
-        <CardContent className={'aspect-square w-full h-full px-0'}>
-          <img
-            src='/assets/images/team-of-young-successful-designers-gathered-by-wor-2023-11-27-04-57-08-utc_result.webp'
-            alt='about-us-cover'
-            className={'w-full h-full object-cover rounded-2xl'}
-            width={'100%'}
-            height={'100%'}
-          />
+        <CardContent className={'px-0'}>
+          <CoverWithCounter
+            position='left'
+            cover='/assets/images/team-of-young-successful-designers-gathered-by-wor-2023-11-27-04-57-08-utc_result.webp'>
+            <AboutStats />
+          </CoverWithCounter>
         </CardContent>
       </Card>
 

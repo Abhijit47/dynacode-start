@@ -21,11 +21,15 @@ export default function SectionCounters() {
             className={'w-full h-full object-cover rounded-xl'}
           />
         </div>
-        <CardContent className={'grid grid-cols-4 gap-4 lg:gap-6 z-10'}>
+        <CardContent
+          className={
+            'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 z-10'
+          }>
           {counters.map((count) => (
             <Card
+              key={count.id}
               className={
-                'bg-transparent border-0 backdrop-blur-xl aspect-video h-full w-full justify-center'
+                'bg-transparent border-0 backdrop-blur-xl backdrop-brightness-75 aspect-video h-full w-full justify-center'
               }>
               <CardHeader className={'text-center'}>
                 <CardTitle>
