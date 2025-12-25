@@ -48,11 +48,11 @@ function RootComponent() {
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className={'relative'}>
         <ThemeProvider
           attribute='class'
           defaultTheme='system'
