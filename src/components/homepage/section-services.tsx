@@ -1,7 +1,8 @@
-import { services } from '@/constants';
 import { Link } from '@tanstack/react-router';
 import { ArrowUpRight, Loader2 } from 'lucide-react';
 import { Fragment } from 'react';
+
+import { services } from '@/constants';
 import { TypographyH2, TypographyLead, TypographyP } from '../typography';
 import { Badge } from '../ui/badge';
 import { buttonVariants } from '../ui/button';

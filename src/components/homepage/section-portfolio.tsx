@@ -1,5 +1,6 @@
-import { portfolios } from '@/constants';
 import { Loader2 } from 'lucide-react';
+
+import { portfolios } from '@/constants';
 import { TypographyH2, TypographyH4, TypographyLead } from '../typography';
 import { Badge } from '../ui/badge';
 import {

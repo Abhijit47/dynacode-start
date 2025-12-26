@@ -1,4 +1,3 @@
-import { blogs } from '@/constants';
 import { Link } from '@tanstack/react-router';
 import {
   ArrowUpRightIcon,
@@ -6,6 +5,8 @@ import {
   Loader2,
   MessageCircleMoreIcon,
 } from 'lucide-react';
+
+import { blogs } from '@/constants';
 import { TypographyH2, TypographyH4, TypographyP } from '../typography';
 import { Badge } from '../ui/badge';
 import { buttonVariants } from '../ui/button';
@@ -94,23 +95,6 @@ export default function SectionInsights() {
                     </CardAction>
                   </div>
                 </CardContent>
-
-                {/* <CardFooter className={'justify-between'}>
-                  <Link
-                    to={blog.link}
-                    className={buttonVariants({
-                      variant: 'link',
-                    })}>
-                    Read more <ArrowUpRightIcon />
-                  </Link>
-
-                  <CardAction
-                    className={
-                      'self-center content-center flex items-center gap-2'
-                    }>
-                    <MessageCircleMoreIcon /> {blog.comment}
-                  </CardAction>
-                </CardFooter> */}
               </Card>
             ))}
           </div>

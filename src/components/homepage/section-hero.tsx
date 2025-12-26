@@ -1,4 +1,3 @@
-import { cn } from '@/lib/utils';
 import { Link } from '@tanstack/react-router';
 import {
   FacebookIcon,
@@ -8,6 +7,9 @@ import {
   TwitterIcon,
   YoutubeIcon,
 } from 'lucide-react';
+
+import { reviewTags, serviceTags, trustedClients } from '@/constants';
+import { cn } from '@/lib/utils';
 import { TypographyH1, TypographyLarge, TypographyP } from '../typography';
 import { Badge } from '../ui/badge';
 import { Button, buttonVariants } from '../ui/button';
@@ -51,18 +53,18 @@ export default function SectionHero() {
         <CardContent className={'grid grid-cols-3 gap-4'}>
           <div className={'order-2 md:order-1 col-span-full md:col-span-1 '}>
             <div className={'flex items-center gap-2'}>
-              {Array.from({ length: 4 }).map(() => (
+              {trustedClients.map((client, idx) => (
                 <div
-                  key={crypto.randomUUID()}
+                  key={client.id}
                   className={
                     'rounded-full outline-2 p-0.5 outline-primary outline-double'
                   }>
                   <img
-                    src='/tanstack-circle-logo.png'
-                    alt='client-avatar'
-                    width={100}
-                    height={100}
-                    className={'w-full h-full object-cover'}
+                    src={client.image}
+                    alt={`client-avatar-${idx + 1}`}
+                    width={80}
+                    height={80}
+                    className={'w-full h-full object-cover rounded-full'}
                   />
                 </div>
               ))}
@@ -107,14 +109,7 @@ export default function SectionHero() {
               'flex flex-col items-center justify-between w-full h-full z-10'
             }>
             <div className={'flex items-center gap-4 flex-wrap'}>
-              {[
-                'On-Page SEO',
-                'Digital Marketing',
-                'Off-Page SEO',
-                'Social Media Marketing',
-                'Analytic and Reporting',
-                'Influencer Marketing',
-              ].map((tag) => (
+              {serviceTags.map((tag) => (
                 <Badge
                   key={crypto.randomUUID()}
                   variant={'secondary'}
@@ -206,13 +201,11 @@ export default function SectionHero() {
               </Button>
             </CardAction>
             <CardAction className={'self-end space-x-4'}>
-              {['Proven Result', 'Experienced Team', 'Affordable Pricing'].map(
-                (item) => (
-                  <Badge variant={'secondary'} key={crypto.randomUUID()}>
-                    {item}
-                  </Badge>
-                )
-              )}
+              {reviewTags.map((item) => (
+                <Badge variant={'secondary'} key={crypto.randomUUID()}>
+                  {item}
+                </Badge>
+              ))}
             </CardAction>
           </CardFooter>
         </Card>

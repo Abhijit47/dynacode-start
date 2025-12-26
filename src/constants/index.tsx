@@ -15,6 +15,40 @@ import {
   ZapIcon,
 } from 'lucide-react';
 
+export const serviceTags = [
+  'On-Page SEO',
+  'Digital Marketing',
+  'Off-Page SEO',
+  'Social Media Marketing',
+  'Analytic and Reporting',
+  'Influencer Marketing',
+];
+
+export const reviewTags = [
+  'Proven Result',
+  'Experienced Team',
+  'Affordable Pricing',
+];
+
+export const trustedClients = [
+  {
+    id: crypto.randomUUID(),
+    image: '/assets/images/team3.jpg',
+  },
+  {
+    id: crypto.randomUUID(),
+    image: '/assets/images/team4.jpg',
+  },
+  {
+    id: crypto.randomUUID(),
+    image: '/assets/images/team5.webp',
+  },
+  {
+    id: crypto.randomUUID(),
+    image: '/assets/images/team7.webp',
+  },
+];
+
 export const partners = [
   {
     id: crypto.randomUUID(),

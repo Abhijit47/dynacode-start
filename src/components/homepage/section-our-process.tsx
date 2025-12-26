@@ -1,5 +1,6 @@
-import { processes } from '@/constants';
 import { Loader2Icon } from 'lucide-react';
+
+import { processes } from '@/constants';
 import {
   TypographyH2,
   TypographyH3,

@@ -46,6 +46,8 @@ function RootComponent() {
   );
 }
 
+const isDev = import.meta.env.DEV;
+
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en' suppressHydrationWarning>
@@ -59,7 +61,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           enableSystem
           disableTransitionOnChange>
           <Navbar />
-          <Header />
+          {isDev ? <Header /> : null}
           {children}
           <TanStackDevtools
             config={{

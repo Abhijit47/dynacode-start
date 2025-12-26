@@ -1,16 +1,17 @@
-import SectionAboutUs from '@/components/sections/section-about-us';
-import SectionContactCTA from '@/components/sections/section-contact-cta';
-import SectionCounters from '@/components/sections/section-counters';
-import SectionHero from '@/components/sections/section-hero';
-import SectionInsights from '@/components/sections/section-insights';
-import SectionNewsletterCTA from '@/components/sections/section-newsletter-cta';
-import SectionOurProcess from '@/components/sections/section-our-process';
-import SectionPartners from '@/components/sections/section-partners';
-import SectionPortfolio from '@/components/sections/section-portfolio';
-import SectionServices from '@/components/sections/section-services';
-import SectionTestimonials from '@/components/sections/section-testimonials';
-import SectionWhyChooseUs from '@/components/sections/section-why-choose-us';
 import { createFileRoute } from '@tanstack/react-router';
+
+import SectionAboutUs from '@/components/homepage/section-about-us';
+import SectionContactCTA from '@/components/homepage/section-contact-cta';
+import SectionCounters from '@/components/homepage/section-counters';
+import SectionHero from '@/components/homepage/section-hero';
+import SectionInsights from '@/components/homepage/section-insights';
+import SectionNewsletterCTA from '@/components/homepage/section-newsletter-cta';
+import SectionOurProcess from '@/components/homepage/section-our-process';
+import SectionPartners from '@/components/homepage/section-partners';
+import SectionPortfolio from '@/components/homepage/section-portfolio';
+import SectionServices from '@/components/homepage/section-services';
+import SectionTestimonials from '@/components/homepage/section-testimonials';
+import SectionWhyChooseUs from '@/components/homepage/section-why-choose-us';
 
 export const Route = createFileRoute('/')({
   head: () => ({
