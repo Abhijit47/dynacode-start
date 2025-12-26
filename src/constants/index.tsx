@@ -33,19 +33,19 @@ export const reviewTags = [
 export const trustedClients = [
   {
     id: crypto.randomUUID(),
-    image: '/assets/images/team3.jpg',
+    image: '/assets/images/Team3.jpg',
   },
   {
     id: crypto.randomUUID(),
-    image: '/assets/images/team4.jpg',
+    image: '/assets/images/Team4.jpg',
   },
   {
     id: crypto.randomUUID(),
-    image: '/assets/images/team5.webp',
+    image: '/assets/images/Team5.webp',
   },
   {
     id: crypto.randomUUID(),
-    image: '/assets/images/team7.webp',
+    image: '/assets/images/Team7.webp',
   },
 ];
 
