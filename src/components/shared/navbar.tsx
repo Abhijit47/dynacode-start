@@ -266,10 +266,14 @@ export default function Navbar() {
         <div className='flex items-center gap-2'>
           <ModeToggle />
           <Button asChild variant='ghost' size='sm' className='text-sm'>
-            <Link to='/login'>Sign In</Link>
+            <Link to='/login' preload={'intent'}>
+              Sign In
+            </Link>
           </Button>
           <Button asChild size='sm' className='text-sm'>
-            <Link to='/signup'>Get Started</Link>
+            <Link to='/signup' preload={'intent'}>
+              Get Started
+            </Link>
           </Button>
         </div>
       </div>
