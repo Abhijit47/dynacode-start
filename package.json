@@ -15,7 +15,7 @@
     "db:generate": "pnpm drizzle-kit generate",
     "db:migrate": "pnpm drizzle-kit migrate",
     "db:push": "pnpm drizzle-kit push",
-    "db:studio": "pnpm drizzle-kit studio --host=0.0.0.0 --port=5000 --verbose"
+    "db:studio": "pnpm drizzle-kit studio --verbose"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -46,8 +46,11 @@
     "@radix-ui/react-toggle": "^1.1.10",
     "@radix-ui/react-toggle-group": "^1.1.11",
     "@radix-ui/react-tooltip": "^1.2.8",
+    "@tabler/icons-react": "^3.36.0",
     "@tailwindcss/vite": "^4.0.6",
     "@tanstack/react-devtools": "^0.7.0",
+    "@tanstack/react-form": "^1.27.6",
+    "@tanstack/react-form-devtools": "^0.2.9",
     "@tanstack/react-router": "^1.132.0",
     "@tanstack/react-router-devtools": "^1.132.0",
     "@tanstack/react-router-ssr-query": "^1.131.7",

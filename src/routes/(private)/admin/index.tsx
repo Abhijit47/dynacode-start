@@ -1,7 +1,7 @@
 import { authMiddleware } from '@/middleware/auth';
 import { createFileRoute } from '@tanstack/react-router';
 
-export const Route = createFileRoute('/admin/')({
+export const Route = createFileRoute('/(private)/admin/')({
   component: RouteComponent,
   server: {
     middleware: [authMiddleware],

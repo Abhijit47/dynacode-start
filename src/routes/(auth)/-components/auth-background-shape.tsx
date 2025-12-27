@@ -1,15 +1,3 @@
-// import { createFileRoute } from '@tanstack/react-router'
-
-// export const Route = createFileRoute('/login/components/auth-background-shape')(
-//   {
-//     component: RouteComponent,
-//   },
-// )
-
-// function RouteComponent() {
-//   return <div>Hello "/login/components/auth-background-shape"!</div>
-// }
-
 // React Imports
 import type { SVGAttributes } from 'react';
 

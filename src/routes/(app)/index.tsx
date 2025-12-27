@@ -13,7 +13,7 @@ import SectionServices from '@/components/homepage/section-services';
 import SectionTestimonials from '@/components/homepage/section-testimonials';
 import SectionWhyChooseUs from '@/components/homepage/section-why-choose-us';
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute('/(app)/')({
   head: () => ({
     meta: [
       { title: 'Home | Dynacode' },

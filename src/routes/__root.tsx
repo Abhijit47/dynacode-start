@@ -1,19 +1,28 @@
 import { TanStackDevtools } from '@tanstack/react-devtools';
+import { formDevtoolsPlugin } from '@tanstack/react-form-devtools';
 import {
   HeadContent,
   Outlet,
   Scripts,
-  createRootRoute,
+  // createRootRoute,
+  createRootRouteWithContext,
 } from '@tanstack/react-router';
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
 
 import Header from '../components/Header';
 
 import Navbar from '@/components/shared/navbar';
+// import NotFound from '@/components/shared/not-found';
+import { Toaster } from '@/components/ui/sonner';
 import { ThemeProvider } from '@/providers/theme-provider';
+import { useTheme } from 'next-themes';
 import appCss from '../styles.css?url';
 
-export const Route = createRootRoute({
+interface MyRouterContext {
+  foo: boolean;
+}
+
+export const Route = createRootRouteWithContext<MyRouterContext>()({
   head: () => ({
     meta: [
       {
@@ -36,12 +45,23 @@ export const Route = createRootRoute({
   }),
 
   shellComponent: RootComponent,
+  notFoundComponent: () => {
+    return <p>Not found!</p>;
+  },
 });
 
 function RootComponent() {
+  const { systemTheme } = useTheme();
+
   return (
     <RootDocument>
       <Outlet />
+      <Toaster
+        theme={systemTheme ?? 'system'}
+        position='top-center'
+        // richColors={true}
+        closeButton={true}
+      />
     </RootDocument>
   );
 }
@@ -72,6 +92,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                 name: 'Tanstack Router',
                 render: <TanStackRouterDevtoolsPanel />,
               },
+              formDevtoolsPlugin(),
             ]}
           />
           <Scripts />
