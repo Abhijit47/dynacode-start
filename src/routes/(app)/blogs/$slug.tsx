@@ -66,7 +66,7 @@ function RouteComponent() {
     <div>
       <h2>{post.title}</h2>
       <p>{post.description}</p>
-      <span>{post.published}</span>
+      <span>{post.publishedAt}</span>
       <div>
         <MDXContent code={post.mdx} />
       </div>
