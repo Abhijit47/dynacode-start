@@ -16,10 +16,12 @@ import { Route as authSignupIndexRouteImport } from './routes/(auth)/signup/inde
 import { Route as authResetPasswordIndexRouteImport } from './routes/(auth)/reset-password/index'
 import { Route as authLoginIndexRouteImport } from './routes/(auth)/login/index'
 import { Route as authForgotPasswordIndexRouteImport } from './routes/(auth)/forgot-password/index'
+import { Route as appBlogsIndexRouteImport } from './routes/(app)/blogs/index'
 import { Route as DemoStartServerFuncsRouteImport } from './routes/demo/start.server-funcs'
 import { Route as DemoStartApiRequestRouteImport } from './routes/demo/start.api-request'
 import { Route as DemoApiNamesRouteImport } from './routes/demo/api.names'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as appBlogsSlugRouteImport } from './routes/(app)/blogs/$slug'
 import { Route as DemoStartSsrIndexRouteImport } from './routes/demo/start.ssr.index'
 import { Route as DemoStartSsrSpaModeRouteImport } from './routes/demo/start.ssr.spa-mode'
 import { Route as DemoStartSsrFullSsrRouteImport } from './routes/demo/start.ssr.full-ssr'
@@ -60,6 +62,11 @@ const authForgotPasswordIndexRoute = authForgotPasswordIndexRouteImport.update({
   path: '/forgot-password/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const appBlogsIndexRoute = appBlogsIndexRouteImport.update({
+  id: '/(app)/blogs/',
+  path: '/blogs/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DemoStartServerFuncsRoute = DemoStartServerFuncsRouteImport.update({
   id: '/demo/start/server-funcs',
   path: '/demo/start/server-funcs',
@@ -78,6 +85,11 @@ const DemoApiNamesRoute = DemoApiNamesRouteImport.update({
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const appBlogsSlugRoute = appBlogsSlugRouteImport.update({
+  id: '/(app)/blogs/$slug',
+  path: '/blogs/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DemoStartSsrIndexRoute = DemoStartSsrIndexRouteImport.update({
@@ -104,10 +116,12 @@ const DemoStartSsrDataOnlyRoute = DemoStartSsrDataOnlyRouteImport.update({
 export interface FileRoutesByFullPath {
   '/about': typeof appAboutRoute
   '/': typeof appIndexRoute
+  '/blogs/$slug': typeof appBlogsSlugRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/blogs': typeof appBlogsIndexRoute
   '/forgot-password': typeof authForgotPasswordIndexRoute
   '/login': typeof authLoginIndexRoute
   '/reset-password': typeof authResetPasswordIndexRoute
@@ -121,10 +135,12 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/about': typeof appAboutRoute
   '/': typeof appIndexRoute
+  '/blogs/$slug': typeof appBlogsSlugRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/blogs': typeof appBlogsIndexRoute
   '/forgot-password': typeof authForgotPasswordIndexRoute
   '/login': typeof authLoginIndexRoute
   '/reset-password': typeof authResetPasswordIndexRoute
@@ -139,10 +155,12 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/(app)/about': typeof appAboutRoute
   '/(app)/': typeof appIndexRoute
+  '/(app)/blogs/$slug': typeof appBlogsSlugRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/(app)/blogs/': typeof appBlogsIndexRoute
   '/(auth)/forgot-password/': typeof authForgotPasswordIndexRoute
   '/(auth)/login/': typeof authLoginIndexRoute
   '/(auth)/reset-password/': typeof authResetPasswordIndexRoute
@@ -158,10 +176,12 @@ export interface FileRouteTypes {
   fullPaths:
     | '/about'
     | '/'
+    | '/blogs/$slug'
     | '/api/auth/$'
     | '/demo/api/names'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
+    | '/blogs'
     | '/forgot-password'
     | '/login'
     | '/reset-password'
@@ -175,10 +195,12 @@ export interface FileRouteTypes {
   to:
     | '/about'
     | '/'
+    | '/blogs/$slug'
     | '/api/auth/$'
     | '/demo/api/names'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
+    | '/blogs'
     | '/forgot-password'
     | '/login'
     | '/reset-password'
@@ -192,10 +214,12 @@ export interface FileRouteTypes {
     | '__root__'
     | '/(app)/about'
     | '/(app)/'
+    | '/(app)/blogs/$slug'
     | '/api/auth/$'
     | '/demo/api/names'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
+    | '/(app)/blogs/'
     | '/(auth)/forgot-password/'
     | '/(auth)/login/'
     | '/(auth)/reset-password/'
@@ -210,10 +234,12 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   appAboutRoute: typeof appAboutRoute
   appIndexRoute: typeof appIndexRoute
+  appBlogsSlugRoute: typeof appBlogsSlugRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   DemoApiNamesRoute: typeof DemoApiNamesRoute
   DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
   DemoStartServerFuncsRoute: typeof DemoStartServerFuncsRoute
+  appBlogsIndexRoute: typeof appBlogsIndexRoute
   authForgotPasswordIndexRoute: typeof authForgotPasswordIndexRoute
   authLoginIndexRoute: typeof authLoginIndexRoute
   authResetPasswordIndexRoute: typeof authResetPasswordIndexRoute
@@ -276,6 +302,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof authForgotPasswordIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/(app)/blogs/': {
+      id: '/(app)/blogs/'
+      path: '/blogs'
+      fullPath: '/blogs'
+      preLoaderRoute: typeof appBlogsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/demo/start/server-funcs': {
       id: '/demo/start/server-funcs'
       path: '/demo/start/server-funcs'
@@ -302,6 +335,13 @@ declare module '@tanstack/react-router' {
       path: '/api/auth/$'
       fullPath: '/api/auth/$'
       preLoaderRoute: typeof ApiAuthSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(app)/blogs/$slug': {
+      id: '/(app)/blogs/$slug'
+      path: '/blogs/$slug'
+      fullPath: '/blogs/$slug'
+      preLoaderRoute: typeof appBlogsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/demo/start/ssr/': {
@@ -338,10 +378,12 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   appAboutRoute: appAboutRoute,
   appIndexRoute: appIndexRoute,
+  appBlogsSlugRoute: appBlogsSlugRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
   DemoApiNamesRoute: DemoApiNamesRoute,
   DemoStartApiRequestRoute: DemoStartApiRequestRoute,
   DemoStartServerFuncsRoute: DemoStartServerFuncsRoute,
+  appBlogsIndexRoute: appBlogsIndexRoute,
   authForgotPasswordIndexRoute: authForgotPasswordIndexRoute,
   authLoginIndexRoute: authLoginIndexRoute,
   authResetPasswordIndexRoute: authResetPasswordIndexRoute,

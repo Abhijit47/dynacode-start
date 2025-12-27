@@ -8,6 +8,7 @@ interface ImportMetaEnv {
   readonly VITE_AUTH0_CLIENT_ID: string;
   readonly VITE_SENTRY_DSN?: string;
   readonly VITE_ENABLE_NEW_DASHBOARD?: string;
+  readonly VITE_BASE_URL: string;
 }
 
 interface ImportMeta {
@@ -24,6 +25,8 @@ declare global {
       readonly AUTH0_CLIENT_SECRET: string;
       readonly STRIPE_SECRET_KEY: string;
       readonly NODE_ENV: 'development' | 'production' | 'test';
+      readonly BETTER_AUTH_SECRET: string;
+      readonly BETTER_AUTH_URL: string;
     }
   }
 }

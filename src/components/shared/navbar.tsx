@@ -25,6 +25,7 @@ import { ModeToggle } from './mode-toggle';
 const navigationLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
+  { href: '/blogs', label: 'Blogs' },
   {
     label: 'Features',
     submenu: true,

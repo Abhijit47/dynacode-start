@@ -49,6 +49,26 @@ export const resetPasswordTokenSchema = z.object({
   token: z.string().min(1, 'Token is required'),
 });
 
+export const articleSchema = z.object({
+  title: z.string(),
+  slug: z
+    .string()
+    .lowercase()
+    .regex(/^[a-z0-9-]+$/),
+  summary: z.string(),
+  description: z.string(),
+  authors: z.string().array(),
+  cover: z.string(),
+  keywords: z.string().array(),
+  publishedAt: z.string().refine((date) => !isNaN(Date.parse(date)), {
+    message: 'Invalid date format',
+  }),
+  // content must now be explicitly defined
+  content: z.string(),
+});
+
+export type Article = z.infer<typeof articleSchema>;
+
 export type RegisterFormValues = z.infer<typeof registerFormSchema>;
 export type LoginFormValues = z.infer<typeof loginFormSchema>;
 export type ResetPassword = z.infer<typeof resetPasswordSchema>;
