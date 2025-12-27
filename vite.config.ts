@@ -29,6 +29,9 @@ const config = defineConfig({
         // With more mature variable names:
         manualChunks(id) {
           if (id.includes('node_modules')) {
+            if (id.includes('@tabler/icons-react')) {
+              return 'vendor-icons'; // Group all icons into one chunk
+            }
             const modulePath = id.split('node_modules/')[1];
             const topLevelFolder = modulePath.split('/')[0];
             if (topLevelFolder !== '.pnpm') {
